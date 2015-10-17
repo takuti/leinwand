@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>Leinwand</title>
+    <link href="css/editor.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="editor">
+      <textarea v-model="input" debounce="300"></textarea>
+      <div v-html="input | marked">
+      </div>
+    </div>
+
+    <script src="js/editor.js"></script>
+  </body>
+</html>
