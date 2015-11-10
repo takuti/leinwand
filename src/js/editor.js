@@ -7,7 +7,7 @@ import fs from 'fs';
 import remote from 'remote';
 import ipc from 'ipc';
 
-var editor = new Vue({
+const editor = new Vue({
   el: '#editor',
   data: {
     input: '# hello',
@@ -19,9 +19,9 @@ var editor = new Vue({
 });
 
 // open/save file
-var openFile = null;
+let openFile = null;
 
-var dialog = remote.require('dialog');
+const dialog = remote.require('dialog');
 
 function openFileDialog() {
   dialog.showOpenDialog(
@@ -80,7 +80,7 @@ function playSlideshow () {
   }
 }
 
-var Menu = remote.require('menu');
+const Menu = remote.require('menu');
 Menu.setApplicationMenu(
   Menu.buildFromTemplate(
     [

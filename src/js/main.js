@@ -5,8 +5,8 @@ import BrowserWindow from 'browser-window';
 import globalShortcut from 'global-shortcut';
 import ipc from 'ipc';
 
-var mainWindow = null;
-var slideshowWindow = null;
+let mainWindow = null;
+let slideshowWindow = null;
 
 app.on('wildow-all-closed', function() {
   if (process.platform != 'darwin') {
@@ -40,7 +40,7 @@ ipc.on('open-slideshow-window', function (e, mdFilePath) {
   
   slideshowWindow.loadUrl('file://' + __dirname + '/../slideshow.html');
 
-  var webContents = slideshowWindow.webContents;
+  const webContents = slideshowWindow.webContents;
   webContents.on('did-finish-load', function () {
     webContents.send('load-revealjs', mdFilePath);
   });
