@@ -1,6 +1,6 @@
 'use strict';
 
-var ipc = require('ipc');
+import ipc from 'ipc';
 
 ipc.on('load-revealjs', function (mdFilePath) {
 	var mdSection = '<section data-markdown="' + mdFilePath + '" ';

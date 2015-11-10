@@ -1,8 +1,12 @@
 'use strict';
 
 // Markdown editor using Vue.js and marked
-var Vue = require('vue');
-var marked = require('marked');
+import Vue from 'vue';
+import marked from 'marked';
+import fs from 'fs';
+import remote from 'remote';
+import ipc from 'ipc';
+
 var editor = new Vue({
   el: '#editor',
   data: {
@@ -15,10 +19,8 @@ var editor = new Vue({
 });
 
 // open/save file
-var fs = require('fs');
 var openFile = null;
 
-var remote = require('remote');
 var dialog = remote.require('dialog');
 
 function openFileDialog() {
@@ -68,7 +70,6 @@ function saveFileDialog(callback) {
 }
 
 // emit event and open slideshow window
-var ipc = require('ipc');
 function playSlideshow () {
   if (!editor.$data.filename) {
     saveFileDialog(function () {

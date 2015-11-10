@@ -1,9 +1,9 @@
 'use strict';
 
-var app = require('app');
-var BrowserWindow = require('browser-window');
-var globalShortcut = require('global-shortcut');
-var ipc = require('ipc');
+import app from 'app';
+import BrowserWindow from 'browser-window';
+import globalShortcut from 'global-shortcut';
+import ipc from 'ipc';
 
 var mainWindow = null;
 var slideshowWindow = null;
@@ -20,7 +20,7 @@ app.on('ready', function() {
     height: 600,
     flame: false
   });
-  mainWindow.loadUrl('file://' + __dirname + '/app/editor.html');
+  mainWindow.loadUrl('file://' + __dirname + '/../editor.html');
 
   // mainWindow.openDevTools();
 
@@ -38,7 +38,7 @@ ipc.on('open-slideshow-window', function (e, mdFilePath) {
     flame: false
   });
   
-  slideshowWindow.loadUrl('file://' + __dirname + '/app/slideshow.html');
+  slideshowWindow.loadUrl('file://' + __dirname + '/../slideshow.html');
 
   var webContents = slideshowWindow.webContents;
   webContents.on('did-finish-load', function () {
