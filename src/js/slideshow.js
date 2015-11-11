@@ -4,8 +4,8 @@ import ipc from 'ipc';
 
 ipc.on('load-revealjs', function (mdFilePath) {
 	let mdSection = '<section data-markdown="' + mdFilePath + '" ';
-	mdSection += 'data-separator="^\n\n\n" ';
-	mdSection += 'data-separator-vertical="^\\n\\n" ';
+	mdSection += 'data-separator="^\\-\\-\\-" ';
+	mdSection += 'data-separator-vertical="^\\*\\*\\*" ';
 	mdSection += 'data-separator-notes="^Note:" ';
 	mdSection += 'data-charset="utf-8"></section>';
 	
