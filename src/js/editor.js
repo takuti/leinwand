@@ -56,7 +56,7 @@ function saveFileDialog(callback) {
     dialog.showSaveDialog(function (filename) {
       if (filename) {
         // save as markdown
-        if (!/\A*.(md|markdown)\Z/.test(filename)) {
+        if (!/^.*\.(md|markdown)$/.test(filename)) {
           filename += '.md';
         }
         save(filename);
