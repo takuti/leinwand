@@ -15,7 +15,7 @@ ipc.on('load-revealjs', function (mdFilePath) {
 	Reveal.initialize({
 
 			// Display controls in the bottom right corner
-			controls: true,
+			controls: false,
 
 			// Display a presentation progress bar
 			progress: true,
@@ -33,7 +33,7 @@ ipc.on('load-revealjs', function (mdFilePath) {
 			overview: true,
 
 			// Vertical centering of slides
-			center: true,
+			center: false,
 
 			// Enables touch navigation on devices with touch input
 			touch: true,
@@ -76,7 +76,7 @@ ipc.on('load-revealjs', function (mdFilePath) {
 			previewLinks: false,
 
 			// Transition style
-			transition: 'default', // none/fade/slide/convex/concave/zoom
+			transition: 'none', // none/fade/slide/convex/concave/zoom
 
 			// Transition speed
 			transitionSpeed: 'default', // default/fast/slow
