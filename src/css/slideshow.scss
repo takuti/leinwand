@@ -11,16 +11,17 @@ $red-thin: #F6D4D8;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 25px;
 	
-	#\- {
-		color: $base;
-	}
-	
-	h1#\- { font-size: 2em; }
-	h2#\- { 
+	h1 { 
+    color: $base;
+    font-size: 2em; 
+  }
+	h2 { 
+    color: $base;
 		font-size: 1.8em; 
 		margin-bottom: 1em;
 	}
-	h3#\- { 
+	h3 { 
+    color: $base;
 		font-size: 1.5em; 
 		margin-bottom: 1em;
 	} 
