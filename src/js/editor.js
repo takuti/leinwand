@@ -18,6 +18,17 @@ const editor = new Vue({
   }
 });
 
+// remember previously opened markdown file
+let storedMdFilePath = localStorage.getItem('mdFilePath') || '';
+if (storedMdFilePath) {
+  fs.readFile(storedMdFilePath, 'utf8', function (err, data) {
+    if (err) { throw err; }
+    editor.$data.filename = storedMdFilePath;
+    editor.$data.input = data;
+    document.title = editor.$data.filename;
+  });
+}
+
 // open/save file
 let openFile = null;
 
@@ -37,6 +48,7 @@ function openFileDialog() {
           editor.$data.filename = filename;
           editor.$data.input = data;
           document.title = editor.$data.filename;
+          localStorage.setItem('mdFilePath', filename);
         });
       }
     }
