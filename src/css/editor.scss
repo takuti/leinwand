@@ -1,8 +1,16 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+// scss variable
+$tungsten: #333;
+$base: #00496E;
+$red: #C7243A;
+$red-thin: #F6D4D8;
+
 html, body, #editor {
   margin: 0;
   height: 100%;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #333;
+  color: $tungsten;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 textarea, #editor div {
@@ -16,6 +24,29 @@ textarea, #editor div {
   padding: 0 20px;
 }
 
+#editor {
+  h1, h2, h3 {
+    color: $base;
+    font-size: 1em;
+  }
+  
+  li {
+    margin: 0.5em 0;
+  }
+  
+  strong { 
+    color: $red; 
+  }	
+  
+  em { 
+    display: inline-block;
+    font-style: normal;
+    background: $red-thin;
+    color: $red;
+    padding: 5px;
+  }
+}
+
 textarea {
   border: none;
   border-right: 1px solid #ccc;
@@ -23,10 +54,14 @@ textarea {
   outline: none;
   background-color: #f6f6f6;
   font-size: 14px;
-  font-family: 'Monaco', courier, monospace;
   padding: 20px;
 }
 
 code {
   color: #f66;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #333;
 }
