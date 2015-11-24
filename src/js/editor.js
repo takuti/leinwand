@@ -80,6 +80,16 @@ function playSlideshow () {
   }
 }
 
+function savePDF () {
+  if (!editor.$data.filename) {
+    saveFileDialog(function () {
+      ipc.send('open-print-window', editor.$data.filename);
+    });
+  } else {
+    ipc.send('open-print-window', editor.$data.filename);
+  }
+}
+
 const Menu = remote.require('menu');
 Menu.setApplicationMenu(
   Menu.buildFromTemplate(
@@ -106,6 +116,11 @@ Menu.setApplicationMenu(
             label: 'Save',
             accelerator: 'Command+S',
             click: saveFileDialog
+          },
+          {
+            label: 'Save as PDF',
+            accelerator: 'Command+P',
+            click: savePDF
           }
         ]
       },

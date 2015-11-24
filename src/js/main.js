@@ -7,6 +7,7 @@ import ipc from 'ipc';
 
 let mainWindow = null;
 let slideshowWindow = null;
+let printWindow = null;
 
 app.on('wildow-all-closed', function() {
   if (process.platform != 'darwin') {
@@ -47,5 +48,26 @@ ipc.on('open-slideshow-window', function (e, mdFilePath) {
 
   slideshowWindow.on('closed', function () {
     slideshowWindow = null;
+  });
+});
+
+ipc.on('open-print-window', function (e, mdFilePath) {
+  if (printWindow) { return; }
+
+  printWindow = new BrowserWindow({
+    width: 800,
+    height: 600
+  });
+  
+  printWindow.maximize();
+  printWindow.loadUrl('file://' + __dirname + '/../print.html');
+
+  const webContents = printWindow.webContents;
+  webContents.on('did-finish-load', function () {
+    webContents.send('load-revealjs-and-save-pdf', mdFilePath);
+  });
+
+  printWindow.on('closed', function () {
+    printWindow = null;
   });
 });
