@@ -41,3 +41,11 @@ $red-thin: #F6D4D8;
 		padding: 5px;
 	}
 }
+
+.reveal .slide-number,
+.reveal .slide-number-pdf {
+  color: $tungsten;
+  background: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-style: bold;
+}
