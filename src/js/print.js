@@ -113,36 +113,39 @@ ipc.on('load-revealjs-and-save-pdf', function (mdFilePath) {
 	});
 	
 	Reveal.addEventListener('ready', function(event) {
-		// hide title slide number
-		const titleSlideNumber = document.querySelectorAll('.reveal .slide-number-pdf')[0];
-		titleSlideNumber.style.display = 'None';
-
-		const options = {
-			marginsType: 1,
-			printBackground: true,
-			printSelectionOnly: false,
-			landscape: true,
-			pageSize: 'A4'
-		};
-
-		const dialog = remote.require('dialog');
 		
-		const printWindow = remote.getCurrentWindow();	
-		printWindow.printToPDF(options, function(err, data) {
-			if (err) {
-				dialog.showErrorBox('Error', err);
-				return;
-			}
+		setTimeout(function(){
+			// hide title slide number
+			const titleSlideNumber = document.querySelectorAll('.reveal .slide-number-pdf')[0];
+			titleSlideNumber.style.display = 'None';
+
+			const options = {
+				marginsType: 1,
+				printBackground: true,
+				printSelectionOnly: false,
+				landscape: true,
+				pageSize: 'A4'
+			};
+
+			const dialog = remote.require('dialog');
 			
-			const pdfFilePath = mdFilePath.replace(/\.(md|markdown)/, '.pdf');
-			fs.writeFile(pdfFilePath, data, function(err) {
+			const printWindow = remote.getCurrentWindow();	
+			printWindow.printToPDF(options, function(err, data) {
 				if (err) {
 					dialog.showErrorBox('Error', err);
 					return;
 				}
+				
+				const pdfFilePath = mdFilePath.replace(/\.(md|markdown)/, '.pdf');
+				fs.writeFile(pdfFilePath, data, function(err) {
+					if (err) {
+						dialog.showErrorBox('Error', err);
+						return;
+					}
+				});
+				printWindow.close();
 			});
-			printWindow.close();
-		});
+		}, 1000);
 	});
 
 });
