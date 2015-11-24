@@ -113,6 +113,10 @@ ipc.on('load-revealjs-and-save-pdf', function (mdFilePath) {
 	});
 	
 	Reveal.addEventListener('ready', function(event) {
+		// hide title slide number
+		const titleSlideNumber = document.querySelectorAll('.reveal .slide-number-pdf')[0];
+		titleSlideNumber.style.display = 'None';
+
 		const options = {
 			marginsType: 1,
 			printBackground: true,
