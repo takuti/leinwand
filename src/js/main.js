@@ -60,7 +60,7 @@ ipc.on('open-print-window', function (e, mdFilePath) {
   });
   
   printWindow.maximize();
-  printWindow.loadUrl('file://' + __dirname + '/../print.html');
+  printWindow.loadUrl('file://' + __dirname + '/../print.html?print-pdf');
 
   const webContents = printWindow.webContents;
   webContents.on('did-finish-load', function () {
