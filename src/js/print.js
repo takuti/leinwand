@@ -145,7 +145,7 @@ ipc.on('load-revealjs-and-save-pdf', function (mdFilePath) {
 				});
 				printWindow.close();
 			});
-		}, 1000);
+		}, 3000);
 	});
 
 });
