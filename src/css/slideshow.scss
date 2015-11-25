@@ -13,17 +13,20 @@ $red-thin: #F6D4D8;
 	
 	h1 { 
     color: $base;
-    font-size: 2em; 
+    font-size: 2em;
+    text-transform: none;
   }
 	h2 { 
     color: $base;
 		font-size: 1.8em; 
 		margin-bottom: 1em;
+    text-transform: none;
 	}
 	h3 { 
     color: $base;
 		font-size: 1.5em; 
 		margin-bottom: 1em;
+    text-transform: none;
 	} 
 	
 	li {
